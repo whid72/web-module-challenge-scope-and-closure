@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  counter1 is returning a function while counter2 is simply a function that returns a variable.
   2. Which of the two uses a closure? How can you tell?
-  
+  counter2 uses a closure. The variable 'count' is declared outside of the scope of the function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     count1 would be preferred if the count is predetermined before the function. count2 should be preferred when the count would likely be changed.
 */
 
 // counter1 code
@@ -62,8 +63,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    let score = Math.floor(Math.random()*2);
+    return score;
 }
 
 
@@ -81,8 +83,17 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(func, num){
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0;i<num;i++){
+    homeScore += func();
+    awayScore += func();
+  }
+  return {
+    "Home": homeScore,
+    "Away": awayScore
+  }
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +101,17 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(func, num) {
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0;i < num;i++){
+    homeScore += func();
+    awayScore += func();
+  }
+  return {
+    "Home": homeScore,
+    "Away": awayScore
+  }
 }
 
 
