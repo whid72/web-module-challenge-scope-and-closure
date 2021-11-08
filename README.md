@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is when a function reaches out into the outer scope to receive a variable/function.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -81,9 +82,13 @@ dansRoll();
 dansRoll();
 ```
 
+
 a. Where is closure used in this code? How can you tell?
+When the function reaches for the name value. The name value isn't declared within the function.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+They both were a three for me. The number is the same for me. I wouldn't change anything.
 c. What is the lexical scope of `newRoll`? 
+newRoll is a const variable within a function. Const is a global variable declaration;however, the variable is declared within a function. With that being said, newRoll is a local scoped variable for the function "personalDice". It can only be accessed within the variable unless it's returned.
 
 
 ### Task 3 - Stretch Goals
